@@ -15,6 +15,7 @@
 		603A97812456192100A052DC /* confetti.png in Resources */ = {isa = PBXBuildFile; fileRef = 603A97802456192100A052DC /* confetti.png */; };
 		603F0405257BE83C0012A95D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603F0404257BE83C0012A95D /* LoginViewModel.swift */; };
 		604731B1257BEA5E009F8DF7 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604731B0257BEA5E009F8DF7 /* APIConstants.swift */; };
+		604731B7257C5279009F8DF7 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604731B6257C5279009F8DF7 /* LoginAPI.swift */; };
 		6061706E246B6A9100CDCA0A /* aplausos-largo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 60617066246B6A9000CDCA0A /* aplausos-largo.mp3 */; };
 		6061706F246B6A9100CDCA0A /* 321empezamos-hombre.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 60617067246B6A9000CDCA0A /* 321empezamos-hombre.mp3 */; };
 		60617070246B6A9100CDCA0A /* 321arrancamos-hombre.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 60617068246B6A9000CDCA0A /* 321arrancamos-hombre.mp3 */; };
@@ -57,6 +58,7 @@
 		603A97802456192100A052DC /* confetti.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = confetti.png; sourceTree = "<group>"; };
 		603F0404257BE83C0012A95D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		604731B0257BEA5E009F8DF7 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = APIConstants.swift; path = Venko/Constants/APIConstants.swift; sourceTree = SOURCE_ROOT; };
+		604731B6257C5279009F8DF7 /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		60617066246B6A9000CDCA0A /* aplausos-largo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "aplausos-largo.mp3"; sourceTree = "<group>"; };
 		60617067246B6A9000CDCA0A /* 321empezamos-hombre.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "321empezamos-hombre.mp3"; sourceTree = "<group>"; };
 		60617068246B6A9000CDCA0A /* 321arrancamos-hombre.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "321arrancamos-hombre.mp3"; sourceTree = "<group>"; };
@@ -161,8 +163,8 @@
 		603F0403257BE82A0012A95D /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				60AFBDF22422F13C001A0086 /* LoginViewController.swift */,
-				603F0404257BE83C0012A95D /* LoginViewModel.swift */,
+				604731BA257C527F009F8DF7 /* Infraestructure */,
+				604731B5257C525C009F8DF7 /* Presentation */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -173,6 +175,23 @@
 				604731B0257BEA5E009F8DF7 /* APIConstants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		604731B5257C525C009F8DF7 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				60AFBDF22422F13C001A0086 /* LoginViewController.swift */,
+				603F0404257BE83C0012A95D /* LoginViewModel.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		604731BA257C527F009F8DF7 /* Infraestructure */ = {
+			isa = PBXGroup;
+			children = (
+				604731B6257C5279009F8DF7 /* LoginAPI.swift */,
+			);
+			path = Infraestructure;
 			sourceTree = "<group>";
 		};
 		60AFBDE22422F13C001A0086 = {
@@ -387,6 +406,7 @@
 				604731B1257BEA5E009F8DF7 /* APIConstants.swift in Sources */,
 				60B8CFB024537BB800036F16 /* Sound.swift in Sources */,
 				60AFBE0C24231154001A0086 /* ExerciseCollectionViewCell.swift in Sources */,
+				604731B7257C5279009F8DF7 /* LoginAPI.swift in Sources */,
 				606BCD9A24259DBF0017BC88 /* WeightsTableViewCell.swift in Sources */,
 				603F0405257BE83C0012A95D /* LoginViewModel.swift in Sources */,
 				606BCD9D24297ABF0017BC88 /* YoutubeModalViewController.swift in Sources */,
