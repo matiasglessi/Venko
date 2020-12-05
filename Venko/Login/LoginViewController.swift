@@ -15,6 +15,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var dniTextField: UITextField!
     
+    let viewModel = LoginViewModel(login: APILogin())
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -35,16 +37,17 @@ class LoginViewController: UIViewController {
     
     @IBAction func testUserLogin(_ sender: Any) {
         
-        loginToServer(for: "10") { (routines, error) in
+        viewModel.login() { (routines, error) in
             if !error {
-                self.goToRoutinesScreen(with: routines, and: "10")
+                self.goToRoutinesScreen(with: routines)
             }
         }
     }
     
     
     private func login(with dni: String) {
-        loginToServer(for: dni) { (routines, error) in
+        
+        viewModel.login(with: dni) { (routines, error) in
             if error {
                 self.showAlert(for: dni)
             }
@@ -52,6 +55,7 @@ class LoginViewController: UIViewController {
                 self.goToRoutinesScreen(with: routines, and: dni)
             }
         }
+
     }
     
     private func showAlert(for dni: String) {
@@ -64,7 +68,7 @@ class LoginViewController: UIViewController {
 
     }
     
-    private func goToRoutinesScreen(with routines: [Routine], and dni: String){
+    private func goToRoutinesScreen(with routines: [Routine], and dni: String = APIConstants().TEST_LOGIN){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "RoutinesViewController") as! RoutinesViewController
         controller.routines = routines
@@ -72,26 +76,4 @@ class LoginViewController: UIViewController {
         self.present(controller, animated: true, completion: nil)
 
     }
-    
-    private func loginToServer(for dni: String, completionHandler: @escaping ([Routine], Bool) -> Void){
-        Alamofire.request(APIConstants().BASE_URL  + APIConstants().LOGIN + dni).responseJSON { response in
-            
-            if let value = response.result.value {
-                let jsonItems = JSON(value)
-                
-                var items = [Routine]()
-                
-                for jsonRoutine in jsonItems["items"].arrayValue {
-                    if let routine = Routine.init(json: jsonRoutine) {
-                        items.append(routine)
-                    }
-                }
-                completionHandler(items, false)
-            }
-            else {
-                completionHandler([], true)
-            }
-        }
-    }
 }
-

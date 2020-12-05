@@ -26,12 +26,7 @@ class RoutinesViewController: UIViewController, UITableViewDelegate, UITableView
         routinesTableView.register(UINib(nibName: "RoutinesTableViewCell", bundle: nil), forCellReuseIdentifier: "RoutinesTableViewCell")
         
         getAlumno(for: dni) { name, error in
-            if error {
-                self.dismiss(animated: true, completion: nil)
-            }
-            else {
-                self.userLabel.text = name
-            }
+            self.userLabel.text = error ? "Venko" : name
         }
     }
     
