@@ -260,7 +260,7 @@ class SingleRoutineViewController: UIViewController, UICollectionViewDelegate, U
         
         
         
-        Alamofire.request(APIConstants().BASE_URL + APIConstants().GET_RUTINA_MOBILE + routine + APIConstants().TIPO_RUTINA).responseJSON { response in
+        Alamofire.request(APIConstants().BASE_URL + APIConstants().GET_RUTINA_MOBILE + String(routine) + APIConstants().TIPO_RUTINA).responseJSON { response in
             
             if let value = response.result.value {
                 let jsonFields = JSON(value)
