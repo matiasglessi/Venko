@@ -44,6 +44,7 @@
 		60B339F7244370CE001FE4F3 /* UIView+Graphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B339F6244370CE001FE4F3 /* UIView+Graphics.swift */; };
 		60B339F92443A1C9001FE4F3 /* ConfigureTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B339F82443A1C9001FE4F3 /* ConfigureTimerViewController.swift */; };
 		60B8CFB024537BB800036F16 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8CFAF24537BB800036F16 /* Sound.swift */; };
+		60CBBD94257D130E00D50A3B /* RoutinesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CBBD93257D130E00D50A3B /* RoutinesViewModel.swift */; };
 		60F358C4244254940058EC9C /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F358C3244254940058EC9C /* ConfettiView.swift */; };
 		B025CFDACADB3BA6D587CEE5 /* Pods_Venko.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CC156FB7936578E170559DF /* Pods_Venko.framework */; };
 /* End PBXBuildFile section */
@@ -89,6 +90,7 @@
 		60B339F6244370CE001FE4F3 /* UIView+Graphics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Graphics.swift"; sourceTree = "<group>"; };
 		60B339F82443A1C9001FE4F3 /* ConfigureTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureTimerViewController.swift; sourceTree = "<group>"; };
 		60B8CFAF24537BB800036F16 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		60CBBD93257D130E00D50A3B /* RoutinesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutinesViewModel.swift; sourceTree = "<group>"; };
 		60F358C3244254940058EC9C /* ConfettiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiView.swift; sourceTree = "<group>"; };
 		79F53FD9FEBB43A26F35A60F /* Pods-Venko.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venko.debug.xcconfig"; path = "Target Support Files/Pods-Venko/Pods-Venko.debug.xcconfig"; sourceTree = "<group>"; };
 		B9734DE8025A5E301EBAB58F /* Pods-Venko.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venko.release.xcconfig"; path = "Target Support Files/Pods-Venko/Pods-Venko.release.xcconfig"; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 		60AFBDED2422F13C001A0086 /* Venko */ = {
 			isa = PBXGroup;
 			children = (
+				60CBBD92257D12ED00D50A3B /* Home */,
 				604731B3257BEA85009F8DF7 /* Constants */,
 				603F0403257BE82A0012A95D /* Login */,
 				60AFBDFC2422F13D001A0086 /* Info.plist */,
@@ -237,7 +240,6 @@
 			isa = PBXGroup;
 			children = (
 				60B339F82443A1C9001FE4F3 /* ConfigureTimerViewController.swift */,
-				60AFBE022422F59B001A0086 /* RoutinesViewController.swift */,
 				60AFBE0824230F15001A0086 /* SingleRoutineViewController.swift */,
 				606BCD9C24297ABF0017BC88 /* YoutubeModalViewController.swift */,
 				60A78386242C12D200604C47 /* LoginModalViewController.swift */,
@@ -265,6 +267,15 @@
 				60AFBDF92422F13D001A0086 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		60CBBD92257D12ED00D50A3B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				60AFBE022422F59B001A0086 /* RoutinesViewController.swift */,
+				60CBBD93257D130E00D50A3B /* RoutinesViewModel.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -417,6 +428,7 @@
 				60AFBE15242326B8001A0086 /* Routine.swift in Sources */,
 				60AFBE032422F59B001A0086 /* RoutinesViewController.swift in Sources */,
 				6006A98524240420002ACE89 /* Exercise.swift in Sources */,
+				60CBBD94257D130E00D50A3B /* RoutinesViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

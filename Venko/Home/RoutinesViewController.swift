@@ -15,6 +15,7 @@ class RoutinesViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var routinesTableView: UITableView!
     @IBOutlet weak var userLabel: UILabel!
     
+    var viewModel: RoutinesViewModel!
     var routines: [Routine] = []
     var dni = ""
     
@@ -25,7 +26,7 @@ class RoutinesViewController: UIViewController, UITableViewDelegate, UITableView
         routinesTableView.dataSource = self
         routinesTableView.register(UINib(nibName: "RoutinesTableViewCell", bundle: nil), forCellReuseIdentifier: "RoutinesTableViewCell")
         
-        getAlumno(for: dni) { name, error in
+        viewModel.getTrainee(for: dni) { name, error in
             self.userLabel.text = error ? "Venko" : name
         }
     }
@@ -37,22 +38,6 @@ class RoutinesViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBAction func logout(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    private func getAlumno(for dni: String, completionHandler: @escaping (String, Bool) -> Void){
-        Alamofire.request(APIConstants().BASE_URL + APIConstants().LOGIN + dni).responseJSON { response in
-            
-            if let value = response.result.value {
-                let jsonFields = JSON(value)
-                let jsonFieldsArray = jsonFields.arrayValue
-                if let first = jsonFieldsArray.first, let name = first["fields"]["nombre"].string {
-                    completionHandler(name, false)
-                    return
-                }
-            }
-            completionHandler("", true)
-
-        }
     }
 
     
