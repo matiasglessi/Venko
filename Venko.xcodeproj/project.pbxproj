@@ -28,6 +28,7 @@
 		606BCD9B24259DBF0017BC88 /* WeightsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 606BCD9924259DBF0017BC88 /* WeightsTableViewCell.xib */; };
 		606BCD9D24297ABF0017BC88 /* YoutubeModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606BCD9C24297ABF0017BC88 /* YoutubeModalViewController.swift */; };
 		606BCD9F242A5C400017BC88 /* JSONStringUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606BCD9E242A5C400017BC88 /* JSONStringUtilities.swift */; };
+		6094AA7A257D8CA5005460D8 /* RoutineMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6094AA79257D8CA5005460D8 /* RoutineMapper.swift */; };
 		60A78387242C12D200604C47 /* LoginModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A78386242C12D200604C47 /* LoginModalViewController.swift */; };
 		60AFBDEF2422F13C001A0086 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AFBDEE2422F13C001A0086 /* AppDelegate.swift */; };
 		60AFBDF32422F13C001A0086 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AFBDF22422F13C001A0086 /* LoginViewController.swift */; };
@@ -73,6 +74,7 @@
 		606BCD9924259DBF0017BC88 /* WeightsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeightsTableViewCell.xib; sourceTree = "<group>"; };
 		606BCD9C24297ABF0017BC88 /* YoutubeModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeModalViewController.swift; sourceTree = "<group>"; };
 		606BCD9E242A5C400017BC88 /* JSONStringUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONStringUtilities.swift; sourceTree = "<group>"; };
+		6094AA79257D8CA5005460D8 /* RoutineMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineMapper.swift; sourceTree = "<group>"; };
 		60A78386242C12D200604C47 /* LoginModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModalViewController.swift; sourceTree = "<group>"; };
 		60AFBDEB2422F13C001A0086 /* Venko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Venko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60AFBDEE2422F13C001A0086 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				60CBBD99257D152E00D50A3B /* GetTraineeAPI.swift */,
+				6094AA79257D8CA5005460D8 /* RoutineMapper.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				60AFBE062422F760001A0086 /* RoutinesTableViewCell.swift in Sources */,
 				60B339F92443A1C9001FE4F3 /* ConfigureTimerViewController.swift in Sources */,
 				60B339F7244370CE001FE4F3 /* UIView+Graphics.swift in Sources */,
+				6094AA7A257D8CA5005460D8 /* RoutineMapper.swift in Sources */,
 				60AFBE15242326B8001A0086 /* Routine.swift in Sources */,
 				60AFBE032422F59B001A0086 /* HomeViewController.swift in Sources */,
 				6006A98524240420002ACE89 /* Exercise.swift in Sources */,

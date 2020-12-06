@@ -15,7 +15,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var dniTextField: UITextField!
     
-    let viewModel = LoginViewModel(login: LoginAPI())
+    let viewModel = LoginViewModel(login: LoginAPI(mapper: DefaultRoutineMapper()))
     
     override func viewDidLoad() {
         super.viewDidLoad()

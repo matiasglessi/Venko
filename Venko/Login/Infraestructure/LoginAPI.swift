@@ -16,8 +16,15 @@ protocol Login {
 
 class LoginAPI: Login {
 
+    let mapper: RoutineMapper
+    
+    init(mapper: RoutineMapper) {
+        self.mapper = mapper
+    }
+    
+    
     func login(with dni: String, completionHandler: @escaping ([Routine], Bool) -> Void){
-        Alamofire.request(APIConstants().BASE_URL  + APIConstants().LOGIN + dni).responseJSON { response in
+        Alamofire.request(APIConstants().BASE_URL  + APIConstants().LOGIN + dni).responseJSON { [weak self] response in
             
             if let value = response.result.value {
                 let jsonItems = JSON(value)
@@ -25,7 +32,7 @@ class LoginAPI: Login {
                 var items = [Routine]()
                 
                 for jsonRoutine in jsonItems["items"].arrayValue {
-                    if let routine = Routine.init(json: jsonRoutine) {
+                    if let routine = self?.mapper.map(json: jsonRoutine) {
                         items.append(routine)
                     }
                 }
