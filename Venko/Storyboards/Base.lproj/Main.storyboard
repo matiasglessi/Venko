@@ -83,10 +83,10 @@
             </objects>
             <point key="canvasLocation" x="730" y="114"/>
         </scene>
-        <!--Single Routine View Controller-->
+        <!--Routine Detail View Controller-->
         <scene sceneID="YzG-3h-FcG">
             <objects>
-                <viewController storyboardIdentifier="SingleRoutineViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dfJ-wf-lOP" customClass="SingleRoutineViewController" customModule="Venko" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SingleRoutineViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dfJ-wf-lOP" customClass="RoutineDetailViewController" customModule="Venko" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="klQ-Xn-DSZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

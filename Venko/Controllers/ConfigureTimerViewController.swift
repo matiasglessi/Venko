@@ -129,7 +129,9 @@ class ConfigureTimerViewController: UIViewController {
 
     private func goToRoutine(with timerConfiguration: TimerConfiguration) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "SingleRoutineViewController") as! SingleRoutineViewController
+        let controller = storyboard.instantiateViewController(withIdentifier: "RoutineDetailViewController") as! RoutineDetailViewController
+        
+        controller.viewModel = RoutineDetailViewModel(getExercises: GetExercisesAPI())
         controller.routineId = routineId
         controller.timerConfiguration = timerConfiguration
         self.present(controller, animated: true, completion: nil)

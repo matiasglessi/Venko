@@ -1,5 +1,5 @@
 //
-//  SingleRoutineViewController.swift
+//  RoutineDetailViewController.swift
 //  Venko
 //
 //  Created by Matias Glessi on 18/03/2020.
@@ -20,7 +20,7 @@ enum ExerciseStatus {
 }
 
 
-class SingleRoutineViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, OpenYoutubeVideoDelegate {
+class RoutineDetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, OpenYoutubeVideoDelegate {
 
     @IBOutlet weak var buttonsStackView: UIStackView!
     @IBOutlet weak var soundButton: UIButton!
@@ -37,6 +37,8 @@ class SingleRoutineViewController: UIViewController, UICollectionViewDelegate, U
     @IBOutlet weak var weightsTableView: UITableView!
 
     var timerConfiguration = TimerConfiguration()
+    
+    var viewModel: RoutineDetailViewModel!
         
     var exercises = [Exercise]()
     var routineId = 0
@@ -82,7 +84,8 @@ class SingleRoutineViewController: UIViewController, UICollectionViewDelegate, U
         
         UIApplication.shared.isIdleTimerDisabled = true
 
-        getExercises(for: routineId) { [weak self] (exercises, error) in
+        
+        viewModel.getExercises(for: routineId) { [weak self] (exercises, error) in
             
             guard let strongSelf = self else { return }
             
@@ -97,6 +100,7 @@ class SingleRoutineViewController: UIViewController, UICollectionViewDelegate, U
                 if strongSelf.timerConfiguration.isEnabled { strongSelf.startCountdownTimer() }
             }
         }
+
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -255,30 +259,6 @@ class SingleRoutineViewController: UIViewController, UICollectionViewDelegate, U
         timer = nil
     }
 
-
-    private func getExercises(for routine: Int, completionHandler: @escaping ([Exercise], Bool) -> Void){
-        
-        
-        
-        Alamofire.request(APIConstants().BASE_URL + APIConstants().GET_RUTINA_MOBILE + String(routine) + APIConstants().TIPO_RUTINA).responseJSON { response in
-            
-            if let value = response.result.value {
-                let jsonFields = JSON(value)
-                let jsonFieldsArray = jsonFields.arrayValue
-                var exercises = [Exercise]()
-                for jsonExercise in jsonFieldsArray {
-                    if let exercise = Exercise.init(json: jsonExercise) {
-                        exercises.append(exercise)
-                    }
-                }
-                completionHandler(exercises, false)
-                return
-
-            }
-            completionHandler([], true)
-
-        }
-    }
     
     fileprivate func getCurrentCollectionIndexPath() -> IndexPath? {
         var visibleRect = CGRect()
@@ -411,7 +391,7 @@ class SingleRoutineViewController: UIViewController, UICollectionViewDelegate, U
     }
 }
 
-extension SingleRoutineViewController {
+extension RoutineDetailViewController {
     
     private func scrollToNextExercise() {
         if let currentIndexPath = getCurrentCollectionIndexPath() {
@@ -457,7 +437,7 @@ extension SingleRoutineViewController {
 
 // MARK: SingleRoutine Sounds Management
 
-extension SingleRoutineViewController: AVAudioPlayerDelegate {
+extension RoutineDetailViewController: AVAudioPlayerDelegate {
     
     func playSound(){
         guard let _ = timerConfiguration.bellSound else { return }
