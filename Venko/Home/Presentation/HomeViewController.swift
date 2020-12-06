@@ -1,5 +1,5 @@
 //
-//  RoutinesViewController.swift
+//  HomeViewController.swift
 //  Venko
 //
 //  Created by Matias Glessi on 18/03/2020.
@@ -10,12 +10,12 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class RoutinesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, OpenYoutubeVideoDelegate{
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, OpenYoutubeVideoDelegate{
 
     @IBOutlet weak var routinesTableView: UITableView!
     @IBOutlet weak var userLabel: UILabel!
     
-    var viewModel: RoutinesViewModel!
+    var viewModel: HomeViewModel!
     var routines: [Routine] = []
     var dni = ""
     

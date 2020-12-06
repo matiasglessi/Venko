@@ -70,8 +70,8 @@ class LoginViewController: UIViewController {
     
     private func goToRoutinesScreen(with routines: [Routine], and dni: String = APIConstants().TEST_LOGIN){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "RoutinesViewController") as! RoutinesViewController
-        controller.viewModel = RoutinesViewModel(getTrainee: GetTraineeAPI())
+        let controller = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        controller.viewModel = HomeViewModel(getTrainee: GetTraineeAPI())
         controller.routines = routines
         controller.dni = dni
         self.present(controller, animated: true, completion: nil)

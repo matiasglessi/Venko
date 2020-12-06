@@ -1,5 +1,5 @@
 //
-//  RoutinesViewModel.swift
+//  HomeViewModel.swift
 //  Venko
 //
 //  Created by Matias Glessi on 06/12/2020.
@@ -9,7 +9,7 @@
 import Foundation
 
 
-class RoutinesViewModel {
+class HomeViewModel {
     
     let getTrainee: GetTrainee
     
