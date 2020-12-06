@@ -1,5 +1,5 @@
 //
-//  RoutinesViewModel.swift
+//  GetTraineeAPI.swift
 //  Venko
 //
 //  Created by Matias Glessi on 06/12/2020.
@@ -9,21 +9,6 @@
 import Foundation
 import SwiftyJSON
 import Alamofire
-
-class RoutinesViewModel {
-    
-    let getTrainee: GetTrainee
-    
-    init(getTrainee: GetTrainee) {
-        self.getTrainee = getTrainee
-    }
-    
-    
-    func getTrainee(for dni: String, completionHandler: @escaping (String, Bool) -> Void){
-        getTrainee.getTrainee(for: dni, completionHandler: completionHandler)
-    }
-    
-}
 
 protocol GetTrainee {
     func getTrainee(for dni: String, completionHandler: @escaping (String, Bool) -> Void)
