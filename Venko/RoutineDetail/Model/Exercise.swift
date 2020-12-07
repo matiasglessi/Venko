@@ -27,7 +27,7 @@ class Exercise {
     }
     
     
-    func generateWeightsForServer() -> WeightsToGo {
+    func generateWeightsForServer() -> ServerWeights {
     
         var weightsArray = [String]()
         var repsArray = [String]()
@@ -40,6 +40,6 @@ class Exercise {
         let weightsString = weightsArray.joined(separator: "-")
         let repsString = repsArray.joined(separator: "-")
         
-        return WeightsToGo(weights: weightsString, reps: repsString)
+        return ServerWeights(weights: weightsString, reps: repsString)
     }
 }

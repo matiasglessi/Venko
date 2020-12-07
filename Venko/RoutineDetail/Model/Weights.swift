@@ -28,7 +28,7 @@ class Weights {
     
 }
 
-struct WeightsToGo {
+struct ServerWeights {
      
     var weights = ""
     var reps = ""

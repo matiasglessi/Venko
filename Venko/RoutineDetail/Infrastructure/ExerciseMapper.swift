@@ -10,13 +10,30 @@ import Foundation
 import SwiftyJSON
 
 protocol ExerciseMapper {
-    func map(json: JSON) -> Exercise
+    func mapToExercise(json: JSON) -> Exercise
+    func mapToWeights(json: JSON) -> [Weights]
+    func mapToServerWeights(exercise: Exercise) -> ServerWeights
 }
 
 class DefaultExerciseMapper: ExerciseMapper {
     
-    func map(json: JSON) -> Exercise {
+    func mapToServerWeights(exercise: Exercise) -> ServerWeights {
+        var weightsArray = [String]()
+        var repsArray = [String]()
         
+        for weight in exercise.weights {
+            weightsArray.append(weight.first)
+            repsArray.append(weight.second)
+        }
+        
+        let weightsString = weightsArray.joined(separator: "-")
+        let repsString = repsArray.joined(separator: "-")
+       
+        return ServerWeights(weights: weightsString, reps: repsString)
+    }
+
+    
+    func mapToWeights(json: JSON) -> [Weights] {
         var weights = [Weights]()
         let tags = json["fields"]["tags"].stringValue
         
@@ -28,12 +45,17 @@ class DefaultExerciseMapper: ExerciseMapper {
                 weights.append(Weights(value: String(tuple)))
             }
         }
+        return weights
+    }
+    
+    func mapToExercise(json: JSON) -> Exercise {
         
-        
+        let weights = self.mapToWeights(json: json)
+
         return Exercise(pictureUrl: json["fields"]["video"].stringValue,
                          name: json["fields"]["nombre"].stringValue,
                          youtubeUrl: json["fields"]["url_youtube"].stringValue,
-                         tags: tags,
+                         tags: json["fields"]["tags"].stringValue,
                          weights: weights,
                          exerciseId: json["pk"].intValue)
     }

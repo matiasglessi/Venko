@@ -9,15 +9,24 @@
 import Alamofire
 
 protocol SaveWeights {
-    func save(weights: WeightsToGo, exerciseId: Int, routineId: Int, completionHandler: @escaping (Bool) -> Void)
+    func save(exercise: Exercise, routineId: Int, completionHandler: @escaping (Bool) -> Void)
 }
 
 class SaveWeightsAPI: SaveWeights {
     
-    func save(weights: WeightsToGo, exerciseId: Int, routineId: Int, completionHandler: @escaping (Bool) -> Void) {
+    let mapper: ExerciseMapper
+    
+    init(mapper: ExerciseMapper) {
+        self.mapper = mapper
+    }
+    
+    func save(exercise: Exercise, routineId: Int, completionHandler: @escaping (Bool) -> Void) {
+        
+        let weights = mapper.mapToServerWeights(exercise: exercise)
+        
         let parameters: [String:Any] = ["pesos": weights.weights,
                                         "repeticiones": weights.reps,
-                                        "ejercicio_id": exerciseId,
+                                        "ejercicio_id": exercise.exerciseId,
                                         "rutina": routineId]
         do {
          let parametersStringified = try JSONStringify(value: parameters).stringify()
@@ -30,3 +39,5 @@ class SaveWeightsAPI: SaveWeights {
         }
     }
 }
+
+

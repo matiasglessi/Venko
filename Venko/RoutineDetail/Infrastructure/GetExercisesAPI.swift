@@ -32,7 +32,7 @@ class GetExercisesAPI: GetExercises {
                 let jsonFieldsArray = jsonFields.arrayValue
                 var exercises = [Exercise]()
                 for jsonExercise in jsonFieldsArray {
-                    if let exercise = self?.mapper.map(json: jsonExercise) {
+                    if let exercise = self?.mapper.mapToExercise(json: jsonExercise) {
                         exercises.append(exercise)
                     }
                 }

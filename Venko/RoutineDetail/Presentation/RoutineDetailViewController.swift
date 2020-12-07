@@ -322,6 +322,7 @@ class RoutineDetailViewController: UIViewController, UICollectionViewDelegate, U
         cell.routineId = routineId
         cell.youtubeDelegate = self
         cell.exercise = exercises[indexPath.row]
+        cell.viewModel = ExerciseViewModel(saveWeights: SaveWeightsAPI(mapper: DefaultExerciseMapper()))
         return cell
     }
 
@@ -346,10 +347,7 @@ class RoutineDetailViewController: UIViewController, UICollectionViewDelegate, U
         let controller = storyboard.instantiateViewController(withIdentifier: "YoutubeModalViewController") as! YoutubeModalViewController
         controller.youtubeVideoId = youtubeVideoId
         self.present(controller, animated: true, completion: nil)
-    }
-
-
-    
+    }   
     
     private func resetTraining(){
         countdownTimerLabel.hide()

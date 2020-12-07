@@ -17,9 +17,6 @@ class ExerciseViewModel {
     }
     
     func save(exercise: Exercise, routineId: Int, completionHandler: @escaping (Bool) -> Void) {
-        
-        let weights = exercise.generateWeightsForServer()
-        
-        saveWeights.save(weights: weights, exerciseId: exercise.exerciseId, routineId: routineId, completionHandler: completionHandler)
+        saveWeights.save(exercise: exercise, routineId: routineId, completionHandler: completionHandler)
     }
 }
