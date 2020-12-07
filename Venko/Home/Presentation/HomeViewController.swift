@@ -24,7 +24,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         routinesTableView.delegate = self
         routinesTableView.dataSource = self
-        routinesTableView.register(UINib(nibName: "RoutinesTableViewCell", bundle: nil), forCellReuseIdentifier: "RoutinesTableViewCell")
+        routinesTableView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeTableViewCell")
         
         viewModel.getTrainee(for: dni) { name, error in
             self.userLabel.text = error ? "Venko" : name
@@ -52,7 +52,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = routinesTableView.dequeueReusableCell(withIdentifier: "RoutinesTableViewCell") as! RoutinesTableViewCell
+        let cell = routinesTableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell") as! HomeTableViewCell
         cell.routine = routines[indexPath.row]
         cell.youtubeDelegate = self
         return cell

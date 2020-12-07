@@ -1,5 +1,5 @@
 //
-//  RoutinesTableViewCell.swift
+//  HomeTableViewCell.swift
 //  Venko
 //
 //  Created by Matias Glessi on 18/03/2020.
@@ -10,7 +10,7 @@ import UIKit
 import SDWebImage
 import SDWebImageWebPCoder
 
-class RoutinesTableViewCell: UITableViewCell {
+class HomeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var openVideoButton: UIButton!
     @IBOutlet weak var attendanceLabel: UILabel!

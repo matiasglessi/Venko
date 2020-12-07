@@ -43,8 +43,8 @@
 		60AFBDF82422F13D001A0086 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60AFBDF72422F13D001A0086 /* Assets.xcassets */; };
 		60AFBDFB2422F13D001A0086 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60AFBDF92422F13D001A0086 /* LaunchScreen.storyboard */; };
 		60AFBE032422F59B001A0086 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AFBE022422F59B001A0086 /* HomeViewController.swift */; };
-		60AFBE062422F760001A0086 /* RoutinesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AFBE042422F760001A0086 /* RoutinesTableViewCell.swift */; };
-		60AFBE072422F760001A0086 /* RoutinesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60AFBE052422F760001A0086 /* RoutinesTableViewCell.xib */; };
+		60AFBE062422F760001A0086 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AFBE042422F760001A0086 /* HomeTableViewCell.swift */; };
+		60AFBE072422F760001A0086 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60AFBE052422F760001A0086 /* HomeTableViewCell.xib */; };
 		60AFBE0924230F15001A0086 /* RoutineDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AFBE0824230F15001A0086 /* RoutineDetailViewController.swift */; };
 		60AFBE0C24231154001A0086 /* ExerciseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AFBE0A24231154001A0086 /* ExerciseCollectionViewCell.swift */; };
 		60AFBE0D24231154001A0086 /* ExerciseCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60AFBE0B24231154001A0086 /* ExerciseCollectionViewCell.xib */; };
@@ -98,8 +98,8 @@
 		60AFBDFA2422F13D001A0086 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		60AFBDFC2422F13D001A0086 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60AFBE022422F59B001A0086 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		60AFBE042422F760001A0086 /* RoutinesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutinesTableViewCell.swift; sourceTree = "<group>"; };
-		60AFBE052422F760001A0086 /* RoutinesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoutinesTableViewCell.xib; sourceTree = "<group>"; };
+		60AFBE042422F760001A0086 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		60AFBE052422F760001A0086 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		60AFBE0824230F15001A0086 /* RoutineDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineDetailViewController.swift; sourceTree = "<group>"; };
 		60AFBE0A24231154001A0086 /* ExerciseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCollectionViewCell.swift; sourceTree = "<group>"; };
 		60AFBE0B24231154001A0086 /* ExerciseCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -361,8 +361,8 @@
 			children = (
 				60AFBE022422F59B001A0086 /* HomeViewController.swift */,
 				60CBBD93257D130E00D50A3B /* HomeViewModel.swift */,
-				60AFBE042422F760001A0086 /* RoutinesTableViewCell.swift */,
-				60AFBE052422F760001A0086 /* RoutinesTableViewCell.xib */,
+				60AFBE042422F760001A0086 /* HomeTableViewCell.swift */,
+				60AFBE052422F760001A0086 /* HomeTableViewCell.xib */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -466,7 +466,7 @@
 				60617075246B6A9100CDCA0A /* aplausos-corto.mp3 in Resources */,
 				60AFBDF82422F13D001A0086 /* Assets.xcassets in Resources */,
 				603A977C245618E100A052DC /* correcaminos.mp3 in Resources */,
-				60AFBE072422F760001A0086 /* RoutinesTableViewCell.xib in Resources */,
+				60AFBE072422F760001A0086 /* HomeTableViewCell.xib in Resources */,
 				606BCD9B24259DBF0017BC88 /* WeightsTableViewCell.xib in Resources */,
 				60AFBE0D24231154001A0086 /* ExerciseCollectionViewCell.xib in Resources */,
 				60617074246B6A9100CDCA0A /* 321descansa-hombre.mp3 in Resources */,
@@ -548,7 +548,7 @@
 				606BCD9D24297ABF0017BC88 /* YoutubeModalViewController.swift in Sources */,
 				6094AA82257D9E5E005460D8 /* GetExercisesAPI.swift in Sources */,
 				60AFBE0924230F15001A0086 /* RoutineDetailViewController.swift in Sources */,
-				60AFBE062422F760001A0086 /* RoutinesTableViewCell.swift in Sources */,
+				60AFBE062422F760001A0086 /* HomeTableViewCell.swift in Sources */,
 				60B339F92443A1C9001FE4F3 /* ConfigureTimerViewController.swift in Sources */,
 				60B339F7244370CE001FE4F3 /* UIView+Graphics.swift in Sources */,
 				6094AA93257DA245005460D8 /* Weights.swift in Sources */,
