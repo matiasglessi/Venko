@@ -14,17 +14,25 @@ protocol GetExercises {
 }
 
 class GetExercisesAPI: GetExercises {
+    
+    let mapper: ExerciseMapper
+    
+    init(mapper: ExerciseMapper) {
+        self.mapper = mapper
+    }
+    
+    
     func getExercises(for routine: Int, completionHandler: @escaping ([Exercise], Bool) -> Void){
 
         
-        Alamofire.request(APIConstants().BASE_URL + APIConstants().GET_RUTINA_MOBILE + String(routine) + APIConstants().TIPO_RUTINA).responseJSON { response in
+        Alamofire.request(APIConstants().BASE_URL + APIConstants().GET_RUTINA_MOBILE + String(routine) + APIConstants().TIPO_RUTINA).responseJSON { [weak self] response in
             
             if let value = response.result.value {
                 let jsonFields = JSON(value)
                 let jsonFieldsArray = jsonFields.arrayValue
                 var exercises = [Exercise]()
                 for jsonExercise in jsonFieldsArray {
-                    if let exercise = Exercise.init(json: jsonExercise) {
+                    if let exercise = self?.mapper.map(json: jsonExercise) {
                         exercises.append(exercise)
                     }
                 }
