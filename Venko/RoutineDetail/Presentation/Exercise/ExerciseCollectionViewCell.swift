@@ -25,6 +25,8 @@ class ExerciseCollectionViewCell: UICollectionViewCell, UITableViewDelegate, UIT
     
     weak var youtubeDelegate: OpenYoutubeVideoDelegate?
 
+    var viewModel: ExerciseViewModel!
+    
     var exercise: Exercise? {
         didSet {
             setupExercise()
@@ -94,26 +96,12 @@ class ExerciseCollectionViewCell: UICollectionViewCell, UITableViewDelegate, UIT
     
     @IBAction func saveCurrentWeights(_ sender: Any) {
         
-        
         guard let exercise = exercise else { return }
-        
-        let weightsToGo = exercise.generateWeightsForServer()
-        
         saveWeightsButton.isUserInteractionEnabled = false
         
-        let parameters: [String:Any] = ["pesos": weightsToGo.weights,
-                                        "repeticiones": weightsToGo.reps,
-                                        "ejercicio_id": exercise.exerciseId,
-                                        "rutina": routineId]
-        
-        do {
-         let parametersStringified = try JSONStringify(value: parameters).stringify()
-
-            Alamofire.request(APIConstants().BASE_URL +  APIConstants().SAVE_CURRENT_WEIGHTS, method: .post, parameters: [:], encoding: JSONStringArrayEncoding.init(string: parametersStringified), headers: [:]).responseJSON { (response) in
-                print(response.result)
-                self.saveWeightsButton.isUserInteractionEnabled = true
-            }
-        } catch let error { print(error) }
+        viewModel.save(exercise: exercise, routineId: routineId) { (error) in
+            self.saveWeightsButton.isUserInteractionEnabled = true
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -145,6 +133,7 @@ class ExerciseCollectionViewCell: UICollectionViewCell, UITableViewDelegate, UIT
     func saveWeightsWithValues(_ first: String, _ second: String, for index: Int) {
         
         guard let exercise = exercise else { return }
+        
         
         if index < exercise.weights.count {
             exercise.weights[index] = Weights(first: first, second: second)

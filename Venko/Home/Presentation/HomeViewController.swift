@@ -75,8 +75,4 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 }
 
 
-protocol OpenYoutubeVideoDelegate: class {
-    func presentYoutubeVideo(with youtubeVideoId: String)
-}
-
 

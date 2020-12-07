@@ -8,10 +8,8 @@
 
 import Alamofire
 
-
-
 protocol SaveWeights {
-    
+    func save(weights: WeightsToGo, exerciseId: Int, routineId: Int, completionHandler: @escaping (Bool) -> Void)
 }
 
 class SaveWeightsAPI: SaveWeights {
